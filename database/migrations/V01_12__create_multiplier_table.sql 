@@ -1,0 +1,8 @@
+CREATE TABLE Multiplier (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    description TEXT,
+    discount_code VARCHAR UNIQUE,
+    multiplier NUMERIC(10, 2),
+    valid_until TIMESTAMP WITHOUT TIME ZONE
+);

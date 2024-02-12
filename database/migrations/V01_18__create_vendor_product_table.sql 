@@ -1,0 +1,8 @@
+CREATE TABLE VendorProduct (
+    vendor_id INT NOT NULL,
+    product_id INT NOT NULL,
+    rating INT,
+    PRIMARY KEY (vendor_id, product_id),
+    FOREIGN KEY (vendor_id) REFERENCES Vendors(id),
+    FOREIGN KEY (product_id) REFERENCES Products(id)
+);

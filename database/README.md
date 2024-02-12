@@ -16,6 +16,6 @@ The same details are configured in .pyway.conf as well.
 - To check the current state of the db (regarding the pyway versioning), run:
 `pyway info`
 - To make migrations (if any new files added in migrations folder) run:
-`pyway migrations`
+`pyway migrate`
 
 

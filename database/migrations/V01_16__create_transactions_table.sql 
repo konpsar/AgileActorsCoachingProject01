@@ -1,0 +1,8 @@
+CREATE TABLE Transactions (
+    id SERIAL PRIMARY KEY,
+    type VARCHAR NOT NULL,
+    payment_id INT NOT NULL,
+    payment_datetime TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    succeeded BOOLEAN NOT NULL,
+    FOREIGN KEY (payment_id) REFERENCES Payments(id)
+);

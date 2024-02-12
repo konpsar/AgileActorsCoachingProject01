@@ -1,0 +1,6 @@
+CREATE TABLE Vendors (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    rating INT,
+    FOREIGN KEY (user_id) REFERENCES Users(id)
+);

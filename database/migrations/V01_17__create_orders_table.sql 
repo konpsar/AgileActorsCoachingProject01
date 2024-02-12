@@ -1,0 +1,13 @@
+CREATE TYPE order_state AS ENUM ('Placed', 'Processing', 'Sent', 'Completed', 'Cancelled', 'Refunded');
+
+CREATE TABLE Orders (
+    id SERIAL PRIMARY KEY,
+    customer_id INT NOT NULL,
+    total NUMERIC(10, 2) NOT NULL,
+    discount_id_applied INT,
+    transaction_id INT NOT NULL,
+    shipping_address_id INT NOT NULL,
+    status order_state NOT NULL,
+    created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    modified_at TIMESTAMP WITHOUT TIME ZONE,
+);

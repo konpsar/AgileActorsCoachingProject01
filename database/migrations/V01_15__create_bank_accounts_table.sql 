@@ -1,0 +1,10 @@
+CREATE TABLE BankAccounts (
+    id SERIAL PRIMARY KEY,
+    payment_id INT NOT NULL,
+    address_id INT NOT NULL,
+    acc_owner VARCHAR NOT NULL,
+    acc_provider VARCHAR NOT NULL,
+    acc_num VARCHAR NOT NULL,
+    FOREIGN KEY (payment_id) REFERENCES Payments(id),
+    FOREIGN KEY (address_id) REFERENCES Address(id)
+);

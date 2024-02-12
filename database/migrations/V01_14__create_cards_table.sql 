@@ -1,0 +1,12 @@
+CREATE TABLE Cards (
+    id SERIAL PRIMARY KEY,
+    card_type VARCHAR NOT NULL,
+    payment_id INT NOT NULL,
+    address_id INT NOT NULL,
+    card_owner VARCHAR NOT NULL,
+    card_no BIGINT NOT NULL,
+    card_ccv INT NOT NULL,
+    card_expiry DATE NOT NULL,
+    FOREIGN KEY (payment_id) REFERENCES Payments(id),
+    FOREIGN KEY (address_id) REFERENCES Address(id)
+);
