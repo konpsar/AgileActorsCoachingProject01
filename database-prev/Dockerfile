@@ -8,6 +8,3 @@ ENV POSTGRES_DB=mydatabase
 
 # Expose the default PostgreSQL port
 EXPOSE 5432
-
-# Copy your SQL schema files into the container
-# COPY <dbfile.sql> /docker-entrypoint-initdb.d/10-schema_users.sql
