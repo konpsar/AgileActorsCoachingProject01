@@ -2,7 +2,7 @@ services:
   postgres:
     image: postgres:latest
     env_file:
-      - .env.db.dev
+      - .env.dev
     ports:
       - "5432:5432"
     volumes:

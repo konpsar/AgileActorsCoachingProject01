@@ -1,15 +1,15 @@
 build_n_start:
 	docker build -t pgres-image .
-	docker run -d --name my-pgres-cont --env-file .env.db.dev pgres-image
+	docker run -d --name my-pgres-cont --env-file .env.dev pgres-image
 
 build_without_image:
-	source .env.db.dev && docker run -d --name my-pgres-cont2 --env-file ./.env.db.dev -p $(POSTGRES_PORT):5432 postgres:latest
+	source .env.dev && docker run -d --name my-pgres-cont2 --env-file ./.env.dev -p $(POSTGRES_PORT):5432 postgres:latest
 
 build_w_migrations:
 	docker run -d \
 		--name mypostgres \
 		-v ./migrations:/docker-entrypoint-initdb.d \
-		--env-file ./.env.db.dev \
+		--env-file ./.env.dev \
 		-p 5432:5432 \
 		postgres:latest
 
