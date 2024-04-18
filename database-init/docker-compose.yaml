@@ -1,6 +1,8 @@
+version: '3.8'
 services:
   postgres:
-    image: postgres:latest
+    build:
+      dockerfile: Dockerfile.postgres
     env_file:
       - .env.dev
     ports:
@@ -9,14 +11,9 @@ services:
       - ./migrations:/docker-entrypoint-initdb.d
 
   pyway:
-    image: python:3.10
-    volumes:
-      - ./migrations:/pyway/migrations
-      - ./.pyway.conf:/pyway/.pyway.conf
+    build:
+      dockerfile: Dockerfile.pyway
     environment:
-    # check the pyway documentation for more info -- it may be safer to also define 
-    # sensitive info as env vars from .env files and not include them in the .pyway.conf file
       - PYWAY_CONFIG_FILE=/pyway/.pyway.conf
-    command: /bin/sh -c "pip install pyway && pyway info &&  tail -f /dev/null"
     depends_on:
       - postgres

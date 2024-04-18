@@ -1,0 +1,10 @@
+FROM python:3.10
+
+COPY ./.pyway.conf /pyway/.pyway.conf
+COPY ./migrations /pyway/migrations
+
+RUN pip install pyway
+
+ENV PYWAY_CONFIG_FILE=/pyway/.pyway.conf
+
+CMD ["/bin/sh", "-c", "pyway info && tail -f /dev/null"]
